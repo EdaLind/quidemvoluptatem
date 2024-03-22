@@ -1,0 +1,58 @@
+{
+  "name": "quidemvoluptatem",
+  "homepage": "https://github.com/EdaLind/quidemvoluptatem.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdaLind/quidemvoluptatem.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test:generic": "cd examples/generic && rm -rf node_modules .parcel-cache && yarn && yarn start && cd ../..",
+    "build": "lerna run build --stream",
+    "build:public": "lerna run build --no-private --stream",
+    "lint": "lerna run lint --stream --parallel",
+    "lint:examples": "npx prettier --write examples --ignore-file './prettierignore'",
+    "start:skillforge": "lerna run start --scope @past3lle/skillforge-ui",
+    "start:landing-ui": "lerna run start --scope @past3lle/pastellelabs-landing-ui",
+    "test": "yarn jest --coverage",
+    "test:watch": "yarn test --watch",
+    "install:examples": "cd examples/generic && yarn && cd ../../",
+    "publish:all": "lerna publish",
+    "prepare:publish": "node ./configure-references.js && lerna publish",
+    "nft:write": "lerna run metadata:write --scope @past3lle/skills-nft --",
+    "build:scope": "lerna run build --scope",
+    "build-serve:scope": "lerna run build:serve --scope",
+    "serve:scope": "lerna run serve --scope",
+    "start:scope": "lerna run start --scope",
+    "cosmos:scope": "lerna run cosmos --scope",
+    "forge-cli:scope": "lerna run forge-cli --scope",
+    "cli-ui": "yarn forge-cli:scope @past3lle/skillforge-ui"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "is-ci": "^3.0.1",
+    "jest": "^29.4.0",
+    "lerna": "^6.4.1",
+    "prettier": "^2.8.3",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4",
+    "@babel/cli": "^7.20.7",
+    "@babel/preset-env": "^7.20.2"
+  },
+  "dependencies": {},
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "author": "KarsonGoldner",
+  "version": "1.0.0"
+}
